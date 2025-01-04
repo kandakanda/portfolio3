@@ -1,0 +1,32 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    environment:
+      - "POSTGRES_DB=postgres"
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_PASSWORD=pass"
+    volumes: 
+      - dbdata:/var/lib/postgresql/data
+    restart: always
+
+
+  web:
+    image: django-web
+    build: .
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes: 
+      - .:/portfolio3
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    restart: always
+    environment:
+      - "POSTGRES_DB=postgres"
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_PASSWORD=pass"
+
+volumes:       # 名前付きボリュームを定義している
+  dbdata:      # ボリューム
+  staticdata:  # ボリューム

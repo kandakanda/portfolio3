@@ -1,0 +1,101 @@
+{% extends 'students/base.html' %}
+{% load static %}
+
+{% block title %}Home | 学生管理システム{% endblock %}
+
+{% block head %}
+    <!-- カスタマイズ CSS File -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+{% endblock %}
+
+{% block contents %}
+    <!-- Page Title -->
+    <div class="page-title">
+        <div class="homeheading">
+            <div class="container">
+                <div class="row d-flex justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <h1><span class="font_title">学生管理システム</span></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- End Page Title -->
+   
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>機能一覧</h2>
+            <p>ログイン後に使える機能(一般職・管理職)</p>
+        </div><!-- End Section Title -->
+
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-item  position-relative">
+                        <div class="icon">
+                            <i class="bi bi-activity"></i>
+                        </div>
+                        <h3>学生管理</h3>
+                        <p>・学生情報一覧</p>
+                        <p>・学生個別詳細情報表示</p>
+                        <p>・新規学生登録　※管理職のみ</p>
+                        <p>・学生情報変更　※管理職のみ</p>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="bi bi-broadcast"></i>
+                        </div>
+                        <h3>出欠席管理</h3>
+                        <p>・欠席/遅刻/早退登録</p>
+                        <p>・欠席/遅刻/早退変更</p>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="bi bi-easel"></i>
+                        </div>
+                        <h3>成績管理</h3>
+                        <p>・テスト点数登録</p>
+                        <p>・テスト点数変更</p>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="bi bi-bounding-box-circles"></i>
+                        </div>
+                        <h3>クラス管理</h3>
+                        <p>・クラス情報一覧</p>
+                        <p>・クラス新規登録　※管理職のみ</p>
+                        <p>・クラス情報変更　※管理職のみ</p>
+                        <p>・クラス情報削除　※管理職のみ</p>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="bi bi-calendar4-week"></i>
+                        </div>
+                        <h3>科目管理</h3>
+                        <p>・科目情報一覧</p>
+                        <p>・科目新規登録　※管理職のみ</p>
+                        <p>・科目情報変更　※管理職のみ</p>
+                        <p>・科目情報削除　※管理職のみ</p>
+                    </div>
+                </div><!-- End Service Item -->
+            </div>
+        </div>
+    </section><!-- /Services Section -->
+  {% endblock %}
+

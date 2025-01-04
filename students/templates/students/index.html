@@ -1,0 +1,76 @@
+{% extends 'students/base.html' %}
+{% load static %}
+
+{% block title %}Home | 学生管理システム{% endblock %}
+
+{% block head %}
+    <!-- カスタマイズ CSS File -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+{% endblock %}
+
+
+{% block contents %}
+  
+    <!-- Hero Section -->
+    <section id="hero" class="hero section accent-background a-back">
+
+        <div class="position-relative" data-aos="fade-up" data-aos-delay="200">
+            <div class="container position-relative">
+            <div class="row gy-4 mt-5">
+
+                <div class="col-xl-4 col-md-6">
+                    <div class="icon-box">
+                        <div class="icon">
+                            <i class="bi bi-easel"></i>
+                        </div>                       
+                        <h4 class="title">
+                            <a href="{% url 'students:stu_list' %}" class="stretched-link">学生管理</a>
+                        </h4>
+                    </div>
+                </div><!--End Icon Box -->
+
+                <div class="col-xl-4 col-md-6">
+                    <div class="icon-box">
+                        <div class="icon">
+                            <i class="bi bi-gem"></i>
+                        </div>
+                        <h4 class="title">
+                            <a href="{% url 'attendance:at_search' %}" class="stretched-link">出欠席管理</a>
+                        </h4>
+                    </div>
+                </div><!--End Icon Box -->
+
+                <div class="col-xl-4 col-md-6">
+                <div class="icon-box">
+                    <div class="icon">
+                        <i class="bi bi-geo-alt"></i>
+                    </div>
+                    <h4 class="title">
+                        <a href="{% url 'scores:score_list' %}" class="stretched-link">成績管理</a>
+                    </h4>
+                </div>
+                </div><!--End Icon Box -->
+
+                <div class="col-xl-4 col-md-6">
+                <div class="icon-box">
+                    <div class="icon"><i class="bi bi-command"></i></div>
+                    <h4 class="title"><a href="{% url 'class:cls_list' %}" class="stretched-link">クラス管理</a></h4>
+                </div>
+                </div><!--End Icon Box -->
+
+                <div class="col-xl-4 col-md-6">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bi bi-command"></i></div>
+                        <h4 class="title"><a href="{% url 'scores:sub_list' %}" class="stretched-link">科目管理</a></h4>
+                    </div>
+                </div><!--End Icon Box -->
+            </div>
+            </div>
+        </div>
+
+    </section><!-- /Hero Section -->
+
+{% endblock %}
+
+  

@@ -1,0 +1,76 @@
+{% extends 'students/base.html' %}
+{% load static %}
+
+{% block title %}科目一覧 | 学生管理システム{% endblock %}
+
+{% block head %}
+    <!-- カスタマイズ CSS File -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+{% endblock %}
+
+{% block header %}  
+    <!-- Page Title -->
+    <div class="page-title">
+        <div class="heading">
+            <div class="container">
+                <div class="row d-flex justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <h1>科目一覧</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Title end -->
+
+{% endblock %}
+
+{% block contents %}
+    <!-- 科目登録ボタン -->
+    {% if user.is_staff %}
+        <div class ="btn_css">
+            <a href="{% url 'scores:sub_create' %}">科目登録</a>
+        </div>
+    {% endif %}
+    <!-- 科目登録ボタンend -->
+
+    <!-- 科目一覧 -->
+    <section id="blog-posts" class="blog-posts section">  
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-sm-10 mx-auto">
+                    <table class="table">
+                        <tr>
+                            <th>科目番号</th>
+                            <th>科目名</th>
+                            {% if user.is_staff %}
+                                <th></th>
+                                <th></th>
+                            {% endif %}
+                        </tr>
+
+                        {% for subject in sub_list %}
+                            <tr>
+
+                                <td>{{ subject.subject_id }}</td>
+                                <td>{{ subject.subject_name }}</td>
+                                {% if user.is_staff %}
+                                    <td>
+                                        <a href="{% url 'scores:sub_update' subject.subject_id %}">変更</a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'scores:sub_delete' subject.subject_id %}">削除</a>
+                                    </td>
+                                {% endif %}
+                            </tr>
+                        {% empty %}
+                            <p>科目情報がありません。</p>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 学生一覧end -->
+{% endblock %}

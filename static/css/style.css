@@ -1,0 +1,76 @@
+/* index.html */
+
+/* ボタン裏　背景色 */
+.a-back {
+    background-color: #ffffff;
+}
+/* ボタン上部幅変更 */
+.hero {
+    padding: 20px 0 0 0;
+  }
+
+/* ==================================================================================== */
+/* students_list.html */
+
+/* タイトル幅変更 */
+.page-title .heading {
+    padding: 100px 0 30px 0;
+}
+
+/* aタグの線を消す */
+a {
+    text-decoration: none;
+}
+
+/* 学生登録のボタン */
+.btn_css a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 150px;
+    height: 60px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    background-color: #008374;
+    border-radius: 20px;
+    margin: 20px 0 0 30px;
+}
+
+/* ==================================================================================== */
+/* student_detail.html */
+
+/* 変更ボタンの左側の隙間を開けた */
+.btnstyle {
+    margin-left: 5px;
+}
+
+/* ==================================================================================== */
+/* student_detail.html */
+
+/* 確定ボタンを横並びにして隙間を開けた */
+.btn-container {
+    display: flex;
+    gap: 5px; /* ボタン間の隙間を調整 */
+    align-items: center; /* ボタンを垂直方向に中央揃え */
+}
+
+.btn-container a, .btn-container button {
+    margin: 0; /* マージンのリセット */
+}
+
+/* ==================================================================================== */
+/* home.html */
+
+/* タイトル幅変更 */
+.page-title .homeheading {
+    padding: 150px 0 100px 0;
+}
+
+
+.font_title {
+    font-size: 50px;
+    font-weight: 900;
+}

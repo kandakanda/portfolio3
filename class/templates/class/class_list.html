@@ -1,0 +1,86 @@
+{% extends 'students/base.html' %}
+{% load custom_filters %}
+{% load static %}
+
+{% block title %}クラス一覧 | 学生管理システム{% endblock %}
+
+{% block head %}
+    <!-- カスタマイズ CSS File -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+{% endblock %}
+
+{% block header %}  
+    <!-- Page Title -->
+    <div class="page-title">
+        <div class="heading">
+            <div class="container">
+                <div class="row d-flex justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <h1>クラス一覧</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Title end -->
+
+{% endblock %}
+
+{% block contents %}
+    <!-- クラス登録ボタン -->
+    {% if user.is_staff %}
+        <div class ="btn_css">
+            <a href="{% url 'class:cls_create' %}">クラス登録</a>
+        </div>
+    {% endif %}
+    <!-- クラス登録ボタンend -->
+
+    <!-- クラス一覧 -->
+    <section id="blog-posts" class="blog-posts section">  
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-sm-10 mx-auto">
+                    <table class="table">
+                        <tr>
+                            <th>コース番号</th>
+                            <th>コース名</th>
+                            <th>担当教師番号</th>
+                            <th>担当教師名</th>
+                            {% if user.is_staff %}
+                                <th></th>
+                                <th></th>
+                            {% endif %}
+                        </tr>
+
+                        {% for cls in classes %}
+                            <tr>
+                                {% if cls.class_id != '999' %}
+                                    <td>{{ cls.class_id }}</td>
+                                    <td>{{ cls.course_name }}</td>
+                                    {% if cls.teacher_id != None %}
+                                        <td>{{ cls.teacher_id.teacher_id }}</td>
+                                    {% else %}
+                                        <td>担当なし</td>
+                                    {% endif %}
+                                    <td>{{ teacher | dict_key:cls.teacher_id.teacher_id }}</td>
+                                    {% if user.is_staff %}
+                                        <td>
+                                            <a href="{% url 'class:cls_update' cls.class_id %}">変更</a>
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'class:cls_delete' cls.class_id %}">削除</a>
+                                        </td>
+                                    {% endif %}
+                                {% endif %}
+                            </tr>
+                        {% empty %}
+                            <p>コース情報がありません。</p>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 学生一覧end -->
+{% endblock %}
