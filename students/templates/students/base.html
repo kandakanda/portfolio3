@@ -70,19 +70,19 @@
                     </a>
     
                     <nav id="navmenu" class="navmenu">
-                    <ul>
-                        {% if user.is_authenticated %}
-                            <li><a href="{% url 'students:stu_list' %}">学生管理</a></li>
-                            <li><a href="{% url 'attendance:at_search' %}">出欠席管理</a></li>
-                            <li><a href="{% url 'scores:score_list' %}">成績管理</a></li>
-                            <li><a href="{% url 'class:cls_list' %}">クラス管理</a></li>
-                            <li><a href="{% url 'scores:sub_list' %}">科目管理</a></li>
-                            <li><a href="{% url 'accounts:logout' %}">ログアウト</a></li>
-                        {% else %}
-                            <li><a href="{% url 'accounts:login' %}">ログイン</a></li>
-                        {% endif %}
-
-                        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+                        <ul>
+                            {% if user.is_authenticated %}
+                                <li><a href="{% url 'students:stu_list' %}">学生管理</a></li>
+                                <li><a href="{% url 'attendance:at_search' %}">出欠席管理</a></li>
+                                <li><a href="{% url 'scores:score_list' %}">成績管理</a></li>
+                                <li><a href="{% url 'class:cls_list' %}">クラス管理</a></li>
+                                <li><a href="{% url 'scores:sub_list' %}">科目管理</a></li>
+                                <li><a href="{% url 'accounts:logout' %}">ログアウト</a></li>
+                            {% else %}
+                                <li><a href="{% url 'accounts:login' %}">ログイン</a></li>
+                            {% endif %}
+                        </ul>
+                        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>     
                     </nav>
                 </div>
             </div>
