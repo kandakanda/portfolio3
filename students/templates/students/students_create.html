@@ -7,6 +7,31 @@
     <!-- カスタマイズ CSS File -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // 郵便番号入力フィールドが変更されたときに実行されるイベント
+            $('#postalcode').on('input', function() {
+                var postalcode = $(this).val(); // 入力された郵便番号を取得
+                if (postalcode.length === 7) {
+                    // 郵便番号が7桁の場合、APIを呼び出す
+                    $.getJSON('https://zipcloud.ibsnet.co.jp/api/search?zipcode=' + postalcode, function(data) {
+                        if (data && data.results) {
+                            // 結果から住所を取得
+                            var address = data.results[0];
+                            // 住所1に設定
+                            $('#address1').val(address.address1 + address.address2 + address.address3);
+                            $('#address2').focus(); // 必要ならば address2 に焦点を合わせる
+                        } else {
+                            alert('住所が見つかりませんでした');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
 {% endblock %}
 
 {% block header %}

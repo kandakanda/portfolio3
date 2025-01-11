@@ -25,7 +25,7 @@ services:
       - .env
     depends_on:
       - db
-    restart: no
+    restart: "no"
     environment:
       - "POSTGRES_DB=postgres"
       - "POSTGRES_USER=postgres"

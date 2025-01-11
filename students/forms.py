@@ -35,3 +35,7 @@ class StudentCreateForm(forms.ModelForm):
         # 新規作成の場合は `attend_flag` を変更不可に設定
         if is_create:
             self.fields['attend_flag'].widget.attrs['disabled'] = True
+        
+        self.fields['postalcode'].widget.attrs['id'] = 'postalcode'
+        self.fields['address1'].widget.attrs['id'] = 'address1'
+        self.fields['address2'].widget.attrs['id'] = 'address2'
