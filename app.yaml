@@ -1,0 +1,15 @@
+runtime: python312
+
+handlers:
+- url: /static
+  static_dir: staticfiles/
+
+- url: /.*
+  script: auto
+
+# entrypoint: gunicorn -b :8080 studentapp.wsgi:application
+
+env_variables:
+    DJANGO_SETTINGS_MODULE: "studentapp.settings"
+    SECRET_KEY: "django-insecure-ausl_k%yd3a=b$((2p0*zy85(qt4zw-&b*zwy(@qiapmr!os65"
+    DATABASE_URL: "postgres://postgres:pass@//cloudsql/studentsystem-446904:postgres"
